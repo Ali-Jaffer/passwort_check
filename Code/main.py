@@ -12,4 +12,9 @@ class PasswortAnfrage(BaseModel):
 @app.post("/passwort-check")
 def passwort_check(anfrage: PasswortAnfrage):
     ergebnis = pruefe_passwort(anfrage.passwort)
-    return {"passwort_laenge": len(anfrage.passwort), "bewertung": ergebnis}
+    return {
+        "passwort_laenge": len(anfrage.passwort),
+        "bewertung": ergebnis,
+        "version": "2.0",
+    }
+    
